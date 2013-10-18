@@ -25,6 +25,10 @@
       </section>
     </nav>
 
+    <div class="row">
+      {{view App.FlashListView}}
+    </div>
+
     <div class="row large-12">
       {{outlet}}
     </div>
@@ -74,7 +78,7 @@
 
 
   <script type="text/x-handlebars" data-template-name="_alert">
-    {{view.message}}
+    {{view.content.message}}
   </script>
 
   <script src="js/libs/handlebars-1.0.0.js"></script>
@@ -89,6 +93,8 @@
   <script src="js/controllers/bookmark_controller.js"></script>
 
   <script src="js/views/alert.js"></script>
+  <script src="js/views/flashlist.js"></script>
+  <script src="js/controllers/flash_controller.js"></script>
 
   <script>
     $(document).foundation();
