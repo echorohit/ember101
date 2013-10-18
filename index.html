@@ -72,6 +72,11 @@
     <iframe {{bindAttr src=url}} />
   </script>
 
+
+  <script type="text/x-handlebars" data-template-name="_alert">
+    {{view.message}}
+  </script>
+
   <script src="js/libs/handlebars-1.0.0.js"></script>
   <script src="js/libs/custom.modernizr.js"></script>
   <script src="js/libs/ember-1.0.0.js"></script>
@@ -82,6 +87,8 @@
   <script src="js/router.js"></script>
   <script src="js/controllers/bookmarks_controller.js"></script>
   <script src="js/controllers/bookmark_controller.js"></script>
+
+  <script src="js/views/alert.js"></script>
 
   <script>
     $(document).foundation();
