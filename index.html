@@ -20,6 +20,7 @@
           <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
           <li>{{#linkTo 'about.team'}}Team{{/linkTo}}</li>
           <li>{{#linkTo 'contact'}}Contact{{/linkTo}}</li>
+          <li>{{#linkTo 'bookmarks'}}Bookmarks{{/linkTo}}</li>
         </ul>
       </section>
     </nav>
@@ -46,25 +47,29 @@
       <h1 class="subheader">Contact</h1>
   </script>
 
-    <script type="text/x-handlebars" data-template-name="bookmarks">
-      <h1 class="subheader">Bookmarks</h1>
-      <table class="large-12">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each controller}}
-          <tr>
-            <td>{{name}}</td>
-            <td>{{url}}</td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+  <script type="text/x-handlebars" data-template-name="bookmarks">
+    <h1 class="subheader">Bookmarks</h1>
+    <table class="large-12">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each bookmark in controller}}
+        <tr>
+          <td>{{#linkTo 'bookmark' bookmark}}{{bookmark.name}}{{/linkTo}}</td>
+          <td>{{bookmark.url}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
 
+  <script type="text/x-handlebars" data-template-name="bookmark">
+    <h2>{{{link}}}</h2>
+    <iframe {{bindAttr src=url}} />
   </script>
 
   <script src="js/libs/handlebars-1.0.0.js"></script>
@@ -76,6 +81,7 @@
   <script src="js/models/bookmark.js"></script>
   <script src="js/router.js"></script>
   <script src="js/controllers/bookmarks_controller.js"></script>
+  <script src="js/controllers/bookmark_controller.js"></script>
 
   <script>
     $(document).foundation();
