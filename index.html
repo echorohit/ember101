@@ -8,8 +8,34 @@
 </head>
 <body>
 
+  <script type="text/x-handlebars" data-template-name="application">
+    <nav>
+      <ul>
+        <li>{{#linkTo 'index'}}Home{{/linkTo}}</li>
+        <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
+        <li>{{#linkTo 'about.team'}}Team{{/linkTo}}</li>
+        <li>{{#linkTo 'contact'}}Contact{{/linkTo}}</li>
+      </ul>
+    </nav>
+
+    {{outlet}}
+  </script>
+
   <script type="text/x-handlebars" data-template-name="index">
     <h1>Ember.js 101</h1>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="about">
+      <h1>About</h1>
+      {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="about/team">
+      <h2>Team</h2>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contact">
+      <h1>Contact</h1>
   </script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>

@@ -1,5 +1,13 @@
 App = Ember.Application.create();
 
+App.Router.map(function() {
+  this.resource('about', function() {
+    this.route('team');
+  });
+
+  this.route('contact');
+});
+
 var counter = 0;
 
 var Bookmark = Ember.Object.extend({
