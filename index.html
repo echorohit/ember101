@@ -21,6 +21,7 @@
           <li>{{#linkTo 'about.team'}}Team{{/linkTo}}</li>
           <li>{{#linkTo 'contact'}}Contact{{/linkTo}}</li>
           <li>{{#linkTo 'bookmarks'}}Bookmarks{{/linkTo}}</li>
+          <li>{{#linkTo 'demo'}}Demo{{/linkTo}}</li>
         </ul>
       </section>
     </nav>
@@ -81,6 +82,39 @@
     {{view.content.message}}
   </script>
 
+
+  <script type="text/x-handlebars" data-template-name="demo">
+    <h1>Demo</h1>
+
+    {{partial 'if'}}
+
+    {{partial 'loop'}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_if">
+  <p><button {{bindAttr class="booleanValue:alert:success"}}{{action toggle}}>Toggle</button></p>
+
+  <p>
+    {{#if booleanValue}}
+    its true
+    {{else}}
+    nooooooooooooooooooooo!
+    {{/if}}
+  </p>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_loop">
+  <p>
+    <ol>
+      {{#each list}}
+        <li>{{name}}</li>
+      {{else}}
+      Nothing to see here!
+      {{/each}}
+    </ol>
+  </p>
+  </script>
+
   <script src="js/libs/handlebars-1.0.0.js"></script>
   <script src="js/libs/custom.modernizr.js"></script>
   <script src="js/libs/ember-1.0.0.js"></script>
@@ -95,7 +129,7 @@
   <script src="js/views/alert.js"></script>
   <script src="js/views/flashlist.js"></script>
   <script src="js/controllers/flash_controller.js"></script>
-
+  <script src="js/controllers/demo_controller.js"></script>
   <script>
     $(document).foundation();
   </script>
