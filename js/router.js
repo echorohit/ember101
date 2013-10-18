@@ -11,11 +11,23 @@ App.Router.map(function() {
 });
 
 
-var bookmark1 = App.Bookmark.create({id: 1, 'name': 'airwoot', 'url': 'http://airwoot.com'});
-var bookmark2 = App.Bookmark.create({id: 2, 'name': 'google', 'url': 'http://google.com'});
+App.FIXTURES = [
+  {id: 1, 'name': 'airwoot', 'url': 'http://airwoot.com'}
+, {id: 2, 'name': 'google', 'url': 'http://google.com'}
+];
 
 App.BookmarksRoute = Ember.Route.extend({
   model: function() {
-    return [bookmark1, bookmark2];
+    var objects = [];
+    App.FIXTURES.forEach(function(item) {
+      objects.push(App.Bookmark.create(item));
+    });
+    return objects;
+  }
+});
+
+App.BookmarkRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.Bookmark.create(App.FIXTURES.findBy('id',parseInt(params.bookmark_id)));
   }
 });
